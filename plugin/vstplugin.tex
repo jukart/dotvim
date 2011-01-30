@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[a4paper,margin=2.5cm,nohead]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{amsmath}
+\usepackage[UTF-8]{inputenc}
+
+\newenvironment{deflist}[1]{%
+\begin{list}{}
+{\renewcommand{\makelabel}[1]{\textbf{##1}\hfill}
+\settowidth{\labelwidth}{\textbf{#1}}
+\leftmargin=\labelwidth
+\advance \leftmargin\labelsep}}
+{\end{list}}
+\newenvironment{optlist}[1]{%
+\begin{list}{}
+{\renewcommand{\makelabel}[1]{\texttt{##1}\hfill}
+\settowidth{\labelwidth}{\texttt{#1}}
+\leftmargin=\labelwidth
+\advance \leftmargin\labelsep}}
+{\end{list}}
+\newenvironment{pullquote}{\begin{quotation}\Large}{\end{quotation}}
+\setlength{\extrarowheight}{2pt}
+
+\newcommand{\transition}{\begin{center}\rule{.8\textwidth}{0.2pt}\end{center}}
+\newcommand{\subtitle}[1]{{\large\textsc{#1}}}
+\newcommand{\subs}[1]{\raisebox{-0.7ex}{\footnotesize #1}}
+\newcommand{\sups}[1]{\raisebox{0.7ex}{\footnotesize #1}}
+\newcommand{\attribution}[1]{\raggedleft\textit{#1}}
+\newcommand{\rubric}[1]{\vskip15pt{\large #1}}
+
+\usepackage[pdftex]{hyperref}
+
+\hypersetup{pdfcreator={VST, LaTeX, hyperref},
+bookmarksopen=true,
+bookmarksopenlevel=2,
+colorlinks=true,urlcolor=blue,
+}
+
+\begin{document}
+" Vim reStructured Text
+" (c) Mikolaj Machowski 2006
+" Author: Mikolaj Machowski ( mikmach AT wp DOT pl )
+" Last Change: 30 Jun 2006
+" Version: 1.1 Wedel
+" License:
+" Copyright (C) 2006 Mikolaj Machowski $<$mikmach@wp.pl$>$
+"
+" This script is free software; you can redistribute it and/or
+" modify it under the terms of the GNU Library General Public
+" License as published by the Free Software Foundation; either
+" version 2 of the License, or (at your option) any later version.
+"
+" This library is distributed in the hope that it will be useful,
+" but WITHOUT ANY WARRANTY; without even the implied warranty of
+" MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+" Library General Public License for more details.
+"
+" You should have received a copy of the GNU Library General Public License
+" along with this library; see the file COPYING.LIB. If not, write to
+" the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+" Boston, MA 02110-1301, USA.
+" 
+" VST requires Vim7
+if v:version $<$ 700
+ finish
+endif
+
+" Command :Vst
+command! -range=\% -nargs=? -complete=custom,VST\_Args Vst call vst\#vst\#VST\_Export($<$line1$>$, $<$line2$>$, $<$q-args$>$)
+command! -range=\% -nargs=? -complete=custom,VST\_Args Vsti call vst\#vst\#VST\_InstantWrapper($<$line1$>$, $<$line2$>$, $<$q-args$>$)
+command! -range=\% -nargs=? -complete=custom,VST\_Args Vstm call VST\_Menus()
+
+" VST\_Args: Command line completion for :Vst command \{\{\{function! VST\_Args(A, C, P)
+ let args = "html,tex,latex,pdf,toc,head,fold,link,slink,rep,srep,preproc,help,rest"
+ return substitute(args, ',', '$\backslash$n', 'g')
+endfunction
+" \}\}\}
+" Menus \{\{\{function! VST\_Menus()
+ if has("gui\_running")
+ menu VreST.ExporttoHTML :Vst html$<$cr$>$
+ menu VreST.Exportto\LaTeX{} :Vst tex$<$cr$>$
+ menu VreST.ExporttoPDF :Vst pdf$<$cr$>$
+ menu VreST.ExporttoreST :Vst rest$<$cr$>$
+ menu VreST.Fold :Vst fold$<$cr$>$
+ menu VreST.Headers :Vst head$<$cr$>$
+ menu VreST.TOC :Vst toc$<$cr$>$
+ menu VreST.Help :Vst help$<$cr$>$
+ inoremenu VreST.ExporttoHTML $<$c-o$>$:Vst html$<$cr$>$
+ inoremenu VreST.Exportto\LaTeX{} $<$c-o$>$:Vst tex$<$cr$>$
+ inoremenu VreST.ExporttoPDF $<$c-o$>$:Vst pdf$<$cr$>$
+ inoremenu VreST.ExporttoreST $<$c-o$>$:Vst rest$<$cr$>$
+ inoremenu VreST.Fold $<$c-o$>$:Vst fold$<$cr$>$
+ inoremenu VreST.Headers $<$c-o$>$:Vst head$<$cr$>$
+ inoremenu VreST.TOC $<$c-o$>$:Vst toc$<$cr$>$
+ inoremenu VreST.Help $<$c-o$>$:Vst help$<$cr$>$
+ endif
+endfunction
+if exists("g:vst\_showmenu") \&\& g:vst\_load\_menus != 0
+ call VST\_Menus()
+endif
+" \}\}\}
+\end{document}
+
