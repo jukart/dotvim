@@ -29,12 +29,12 @@ function s:GetWidth(line, regexp)
     let width = 0
     let i = 0
     while i < end
-	if a:line[i] != "\t"
-	    let width = width + 1
-	else
-	    let width = width + &ts - (width % &ts)
-	endif
-	let i = i + 1
+        if a:line[i] != "\t"
+            let width = width + 1
+        else
+            let width = width + &ts - (width % &ts)
+        endif
+        let i = i + 1
     endwhile
     return width
 endfunction
@@ -44,16 +44,16 @@ function s:LeadingWhiteSpace(line)
     let width = 0
     let i = 0
     while i < end
-	let char = a:line[i]
-	if char != " " && char != "\t"
-	    break
-	endif
-	if char != "\t"
-	    let width = width + 1
-	else
-	    let width = width + &ts - (width % &ts)
-	endif
-	let i = i + 1
+        let char = a:line[i]
+        if char != " " && char != "\t"
+            break
+        endif
+        if char != "\t"
+            let width = width + 1
+        else
+            let width = width + &ts - (width % &ts)
+        endif
+        let i = i + 1
     endwhile
     return width
 endfunction
@@ -66,13 +66,15 @@ function GetObjCIndent()
     let cur_line = getline(v:lnum)
 
     if prev_line !~# ":" || cur_line !~# ":"
-	return theIndent
+        return theIndent
     endif
 
-    if prev_line !~# ";"
-	let prev_colon_pos = s:GetWidth(prev_line, ":")
-	let delta = s:GetWidth(cur_line, ":") - s:LeadingWhiteSpace(cur_line)
-	let theIndent = prev_colon_pos - delta
+    "if prev_line !~# ";"
+    " fix from http://blog.patrickcrosby.com/2009/10/02/vim-objective-c-colon-lineup.html
+    if prev_line !~# ";" && prev_line !~# "{"
+        let prev_colon_pos = s:GetWidth(prev_line, ":")
+        let delta = s:GetWidth(cur_line, ":") - s:LeadingWhiteSpace(cur_line)
+        let theIndent = prev_colon_pos - delta
     endif
 
     return theIndent
