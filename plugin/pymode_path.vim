@@ -8,8 +8,8 @@ endif
 
 " DESC: Check python support
 if !has('python')
-    echoerr expand("<sfile>:t") . " required vim compiled with +python."
-    echoerr "Pymode pylint and rope plugins will be disabled."
+    " echoerr expand("<sfile>:t") . " required vim compiled with +python."
+    " echoerr "Pymode pylint and rope plugins will be disabled."
     let g:pymode = 0
     finish
 endif
