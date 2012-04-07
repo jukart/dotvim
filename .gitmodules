@@ -28,3 +28,6 @@
 [submodule "bundle/netrw.vim.git"]
 	path = bundle/netrw.vim.git
 	url = https://github.com/vim-scripts/netrw.vim.git
+[submodule "bundle/commentop.vim.git"]
+	path = bundle/commentop.vim.git
+	url = https://github.com/vim-scripts/commentop.vim.git
