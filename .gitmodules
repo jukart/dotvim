@@ -16,3 +16,6 @@
 [submodule "bundle/supertab.git"]
 	path = bundle/supertab.git
 	url = https://github.com/ervandew/supertab.git
+[submodule "bundle/vim-surround.git"]
+	path = bundle/vim-surround.git
+	url = https://github.com/tpope/vim-surround.git
