@@ -1,0 +1,18 @@
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
+[submodule "bundle/javaScriptLint.vim"]
+	path = bundle/javaScriptLint.vim
+	url = https://github.com/joestelmach/javaScriptLint.vim.git
+[submodule "bundle/play2vim.git"]
+	path = bundle/play2vim.git
+	url = https://github.com/gre/play2vim.git
+[submodule "bundle/vim-fugitive.git"]
+	path = bundle/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "bundle/vim-scala.git"]
+	path = bundle/vim-scala.git
+	url = https://github.com/derekwyatt/vim-scala.git
+[submodule "bundle/supertab.git"]
+	path = bundle/supertab.git
+	url = https://github.com/ervandew/supertab.git

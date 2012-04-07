@@ -10,6 +10,8 @@
 "	    for OpenVMS:  sys$login:.vimrc
 "
 
+call pathogen#infect()
+
 let maplocalleader='_'
 let mapleader='-'
 
@@ -83,7 +85,7 @@ let g:VEConf_showFolderStatus = 0
 ""  let g:VEConf_filePanelFilter = '*[^~]'
 
 " python-mode-ken
-let g:pymode_lint_cwindow = 0
+"let g:pymode_lint_cwindow = 0
 
 " autotag
 let g:autotagVerbosityLevel = 2
@@ -94,6 +96,8 @@ autocmd VimEnter * set vb t_vb=
 " autocmd BufEnter * lcd %:p:h
 
 
+let g:dbext_default_profile_fbn = 'type=PGSQL:user=fbn:dbname=fbn:host=localhost:port=14339'
+let g:dbext_default_profile_fbndebug = 'type=PGSQL:user=jukart:dbname=test_fbn:host=localhost:port=15432'
 let g:dbext_default_profile_mklocal = 'type=PGSQL:user=jukart:dbname=marketizer_mk-dev:host=localhost:port=14338'
 let g:dbext_default_profile_mkdebug = 'type=PGSQL:user=jukart:dbname=mkDBLayer:host=localhost:port=15432'
 let g:dbext_default_profile_azlocal = 'type=PGSQL:user=jukart:dbname=az:host=localhost:port=14339'
@@ -206,7 +210,7 @@ if has('statusline')
         " %l/%L,%c%V	line number, total number of lines, and column number
         function! SetStatusLineStyle()
                 if &stl == '' || &stl =~ 'synID'
-                        let &stl="%F %y%([%R%M]%)%{'!'[&ff=='".&ff."']}%{'$'[!&list]}%{'~'[&pm=='']}%=#%n %l/%L,%c%V "
+                        let &stl="%F %y%([%R%M]%)%{'!'[&ff=='".&ff."']}%{'$'[!&list]}%{'~'[&pm=='']}%=%{fugitive#statusline()}#%n %l/%L,%c%V "
                 else
                         let &stl="%F %y%([%R%M]%)%{'!'[&ff=='".&ff."']}%{'$'[!&list]} (%{synIDattr(synID(line('.'),col('.'),0),'name')})%=#%n %l/%L,%c%V "
                 endif
