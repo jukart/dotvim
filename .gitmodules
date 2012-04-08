@@ -31,3 +31,6 @@
 [submodule "bundle/commentop.vim.git"]
 	path = bundle/commentop.vim.git
 	url = https://github.com/vim-scripts/commentop.vim.git
+[submodule "bundle/winmanager.git"]
+	path = bundle/winmanager.git
+	url = https://github.com/vim-scripts/winmanager.git
