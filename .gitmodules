@@ -34,6 +34,6 @@
 [submodule "bundle/winmanager.git"]
 	path = bundle/winmanager.git
 	url = https://github.com/vim-scripts/winmanager.git
-[submodule "bufexplorer.git.vim"]
-	path = bufexplorer.git.vim
+[submodule "bundle/bufexplorer.git.vim"]
+	path = bundle/bufexplorer.git.vim
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
