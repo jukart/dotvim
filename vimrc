@@ -113,9 +113,6 @@ let g:dbext_default_host = 'localhost'
 
 let g:dbext_default_use_sep_result_buffer = 1
 
-" workspace
-let g:Ws_File = 'dev.vws'
-
 " code_complete parameter
 let g:user_defined_snippets = "$VIMRUNTIME/my_snippets.vim"
 let g:code_completekey = "<D-lt>"
