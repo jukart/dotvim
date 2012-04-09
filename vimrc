@@ -85,6 +85,7 @@ let g:VEConf_showFolderStatus = 0
 ""  let g:VEConf_filePanelFilter = '*[^~]'
 
 " python-mode-ken
+let g:pymode_folding = 0
 "let g:pymode_lint_cwindow = 0
 
 " autotag
