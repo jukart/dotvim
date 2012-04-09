@@ -37,3 +37,6 @@
 [submodule "bundle/bufexplorer.git.vim"]
 	path = bundle/bufexplorer.git.vim
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundle/python-mode.git"]
+	path = bundle/python-mode.git
+	url = https://github.com/klen/python-mode.git
