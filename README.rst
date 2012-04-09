@@ -1,12 +1,7 @@
 After install
 =============
 
-Activate command-t
-------------------
-
- * cd ~/.vim/bundle/Command-T/ruby/command-t/
- * ruby extconf.rb
- * make
+Run "install.sh"
 
 
 Generate helptags
