@@ -16,7 +16,7 @@ let maplocalleader='_'
 let mapleader='-'
 
 " remove whitespaces at end of lines
-map <leader>ws :%s/  *$//g<CR>
+map <leader>rws :%s/  *$//g<CR>
 
 nmap <F3> <C-w>w
 nmap <F2> <C-w>W
@@ -66,7 +66,7 @@ let g:VCSCommandSVNExec = '/opt/local/bin/svn'
 
 " netrw
 let g:netrw_list_hide = "^.*pyc$,^.*\\~$,\.svn\/$,\.swp"
-let g:netrw_sort_sequence = "[\/]$,\.zcml$,\.py$,\.pt$,\.txt$,\.bak$,\.o$,\.h$,\.info$,\.swp$,\.obj$,*"
+let g:netrw_sort_sequence = "[\/]$,\.zcml$,\.py$,\.pt$,\.txt$,\.html$,\.bak$,\.o$,\.h$,\.info$,\.swp$,\.obj$,*"
 
 " Command-t
 let g:CommandTMatchWindowAtTop = 1
