@@ -86,7 +86,7 @@ let g:VEConf_showFolderStatus = 0
 
 " python-mode-ken
 let g:pymode_folding = 0
-let g:pymode_lint_checker = "pyflakes,mccabe"
+let g:pymode_lint_checker = "pyflakes"
 "let g:pymode_lint_cwindow = 0
 
 " autotag
