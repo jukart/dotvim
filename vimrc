@@ -84,6 +84,8 @@ let g:VEConf_pythonPackage = '/Users/jukart/sandbox/'
 let g:VEConf_showFolderStatus = 0
 ""  let g:VEConf_filePanelFilter = '*[^~]'
 
+let g:loaded_luainspect = 0
+
 " python-mode-ken
 let g:pymode_folding = 0
 let g:pymode_lint_checker = "pyflakes"
